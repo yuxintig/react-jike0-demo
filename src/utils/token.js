@@ -1,7 +1,6 @@
 const key = 'pc-key'
 
 const setToken = (token) => {
-  console.log("000",token)
   return window.localStorage.setItem(key, token)
 }
 

@@ -2,24 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe9e2ba7-e1fe-4619-a51d-97c2484bf722" name="Changes" comment="完成登录模块和登录跳转">
-      <change afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Layout/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/login.Store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/token.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AuthComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Layout/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Publish/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/login.Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/login.Store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/token.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +52,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="16.16.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="16.18.7" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/Publish" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\PhpStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JetBrainProjects\React\react-jike-demo\src\pages\Publish" />
+      <recent name="D:\JetBrainProjects\React\react-jike-demo\src\pages\Home" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JetBrainProjects\React\react-jike-demo\src\img" />
       <recent name="D:\JetBrainProjects\React\react-jike-demo\src\pages\Login" />
@@ -93,7 +97,7 @@
       <updated>1670487281573</updated>
       <workItem from="1670487282953" duration="15000" />
       <workItem from="1670487379534" duration="392000" />
-      <workItem from="1670487789969" duration="15804000" />
+      <workItem from="1670487789969" duration="21362000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1670488164415</created>
@@ -102,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670488164415</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="完成登录模块和登录跳转">
+      <created>1670569935672</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670569935672</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

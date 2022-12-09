@@ -8,14 +8,14 @@ export default function Login() {
   const {loginStore} = useStore();
   const navigate = useNavigate()
   const onFinish = (values) => {
-    console.log('Success:', values);
     try {
       loginStore.getToken({
         mobile: values.mobile,
         code: values.password
+      }).then(()=>{
+        navigate('/', {replace: false})
+        message.success('登录成功')
       })
-      navigate('/', {replace: false})
-      message.success('登录成功')
     }catch (e){
       message.error('登录失败')
     }

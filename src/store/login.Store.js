@@ -14,9 +14,8 @@ export default class LoginStore {
       mobile, code
     })
     this.token = res.data.token;
-
-    console.log(this.token )
     setToken(this.token)
+    console.log('????', this.token)
   }
 }
 
