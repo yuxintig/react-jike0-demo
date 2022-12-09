@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe9e2ba7-e1fe-4619-a51d-97c2484bf722" name="Changes" comment="完成退出登录">
-      <change afterPath="$PROJECT_DIR$/src/store/user.Store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/history.js" afterDir="false" />
+    <list default="true" id="fe9e2ba7-e1fe-4619-a51d-97c2484bf722" name="Changes" comment="完成首页">
+      <change afterPath="$PROJECT_DIR$/src/components/Bar/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/login.Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/login.Store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
       <updated>1670487281573</updated>
       <workItem from="1670487282953" duration="15000" />
       <workItem from="1670487379534" duration="392000" />
-      <workItem from="1670487789969" duration="29299000" />
+      <workItem from="1670487789969" duration="32003000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1670488164415</created>
@@ -116,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670575818486</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成退出登录">
+      <created>1670588440033</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670588440033</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +129,7 @@
     <MESSAGE value="完成登录模块和登录跳转" />
     <MESSAGE value="完成二级路由" />
     <MESSAGE value="完成退出登录" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成退出登录" />
+    <MESSAGE value="完成首页" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成首页" />
   </component>
 </project>
