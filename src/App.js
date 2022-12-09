@@ -1,14 +1,15 @@
 import './App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { Route, Routes,unstable_HistoryRouter as HistoryRouter} from "react-router-dom";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import {AuthRoute} from "./components/AuthComponent";
 import Article from "./pages/Article";
 import Home from "./pages/Home";
 import Publish from "./pages/Publish";
+import {history} from "./utils";
 
 function App() {
-  return (<BrowserRouter>
+  return (<HistoryRouter history={history}>
     <div className="App">
       <Routes>
         <Route path='/*' element={<AuthRoute><Layout/></AuthRoute>}>
@@ -20,7 +21,7 @@ function App() {
       </Routes>
     </div>
 
-  </BrowserRouter>);
+  </HistoryRouter>);
 }
 
 export default App;
