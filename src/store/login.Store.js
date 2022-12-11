@@ -15,7 +15,7 @@ export default class LoginStore {
     })
     this.token = res.data.token;
     setToken(this.token)
-    console.log('????', this.token)
+
   }
 
   clearToken = ()=>{
