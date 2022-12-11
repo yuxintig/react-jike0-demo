@@ -12,11 +12,11 @@ export default function Login() {
       loginStore.getToken({
         mobile: values.mobile,
         code: values.password
-      }).then(()=>{
+      }).then(() => {
         navigate('/', {replace: false})
         message.success('登录成功')
       })
-    }catch (e){
+    } catch (e) {
       message.error('登录失败')
     }
 

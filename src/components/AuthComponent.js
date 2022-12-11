@@ -1,13 +1,13 @@
 import {getToken} from "../utils";
 import {Navigate} from "react-router-dom";
 
-function AuthRoute({children}){
+function AuthRoute({children}) {
   const isToken = getToken()
-  console.log("token",isToken)
+  console.log("token", isToken)
 
-  if(isToken){
-    return<>{children}</>
-  }else {
+  if (isToken) {
+    return <>{children}</>
+  } else {
     return <Navigate to='/login' replace/>
   }
 }

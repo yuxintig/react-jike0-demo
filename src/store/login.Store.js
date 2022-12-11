@@ -18,7 +18,7 @@ export default class LoginStore {
 
   }
 
-  clearToken = ()=>{
+  clearToken = () => {
     this.token = '';
     removeToken()
   }

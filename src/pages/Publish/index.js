@@ -52,7 +52,6 @@ const Publish = () => {
   }
 
 
-
   useEffect(() => {
     async function fetchChannels() {
       const res = await http.get('/channels')
@@ -64,7 +63,7 @@ const Publish = () => {
   }, [])
 
 
-  const  onFinish=async (values) => {
+  const onFinish = async (values) => {
     console.log(fileList)
     const {channel_id, content, title, type} = values
     const params = {
@@ -122,7 +121,7 @@ const Publish = () => {
           <Form.Item label="封面">
             <Form.Item name="type">
               <Radio.Group onChange={changeType} defaultValue={imgCount}>
-                <Radio value={1} >单图</Radio>
+                <Radio value={1}>单图</Radio>
                 <Radio value={3}>三图</Radio>
                 <Radio value={0}>无图</Radio>
               </Radio.Group>
@@ -136,8 +135,8 @@ const Publish = () => {
                 action="http://geek.itheima.net/v1_0/upload"
                 fileList={fileList}
                 onChange={onUploadChange}
-                maxCount={ imgCount }
-                multiple={ imgCount > 1 }
+                maxCount={imgCount}
+                multiple={imgCount > 1}
               >
                 <div style={{marginTop: 8}}>
                   <PlusOutlined/>
