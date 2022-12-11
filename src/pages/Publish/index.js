@@ -7,23 +7,29 @@ import {
   Input,
   Upload,
   Space,
-  Select
+  Select, message
 } from 'antd'
 import {PlusOutlined} from '@ant-design/icons'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate, useSearchParams} from 'react-router-dom'
 import './index.scss'
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
 import {useEffect, useRef, useState} from "react";
 import {http} from '../../utils'
+import {observer} from "mobx-react-lite";
 
 const {Option} = Select
 
 const Publish = () => {
   const [channels, setChannels] = useState([])
   const [fileList, setFileList] = useState([])
-  const [imgCount, setImgCount] = useState(1)
+  // const [imgCount, setImgCount] = useState(1)
+  let [imgCount,setImgCount] = useState(1)
   const fileListRef = useRef([])
+  const [params] = useSearchParams()
+  const articleId = params.get('id')
+  const form = useRef(null)
+  const navigate = useNavigate()
 
   const onUploadChange = info => {
     const fileList = info.fileList.map(file => {
@@ -41,6 +47,7 @@ const Publish = () => {
   const changeType = e => {
     const count = e.target.value
     setImgCount(count)
+    // imgCount.current = count
     if (count === 1) {
       // 单图，只展示第一张
       const firstImg = fileListRef.current[0]
@@ -49,6 +56,29 @@ const Publish = () => {
       // 三图，展示所有图片
       setFileList(fileListRef.current)
     }
+  }
+
+  const onFinish = async (values) => {
+    const {channel_id, content, title, type} = values
+    const params = {
+      channel_id,
+      content,
+      title,
+      type: type ? type : 1,
+      cover: {
+        type: type,
+        images: fileList.map(item => item.url)
+      }
+    }
+    if(articleId){
+      // 编辑
+      await http.put(`/mp/articles/${articleId}?draft=false`,params)
+    }else{
+      // 新增
+      await http.post('/mp/articles?draft=false', params)
+    }
+    navigate('/article')
+    message.success(`${articleId?'更新成功':'发布成功'}`)
   }
 
 
@@ -62,22 +92,28 @@ const Publish = () => {
     })
   }, [])
 
-
-  const onFinish = async (values) => {
-    console.log(fileList)
-    const {channel_id, content, title, type} = values
-    const params = {
-      channel_id,
-      content,
-      title,
-      type: type ? type : 1,
-      cover: {
-        type: type,
-        images: fileList.map(item => item.url)
-      }
+  useEffect(() => {
+    async function getArticle () {
+      const res = await http.get(`/mp/articles/${articleId}`)
+      // 动态设置表单数据
+      form.current.setFieldsValue({...res.data, type: res.data.cover.type})
+      // // 格式化封面图片数据
+      console.log(res.data)
+      const imageList = res.data.cover.images.map(url => ({ url }))
+      setFileList(imageList)
+      setImgCount(Number(res.data.cover.type))
+      // setImgCount(Number(res.data.cover.type))
+      // console.log("0000",imgCount)
+      fileListRef.current = imageList
     }
-    await http.post('/mp/articles?draft=false', params)
-  }
+    if (articleId) {
+      // 拉取数据回显
+      getArticle().then(() => {})
+    }
+  }, [articleId])
+
+  console.log("shuliang",imgCount)
+
 
   return (
     <div className="publish">
@@ -87,15 +123,18 @@ const Publish = () => {
             <Breadcrumb.Item>
               <Link to="/">首页</Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item>发布文章</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              {articleId ? '修改文章' : '发布文章'}
+            </Breadcrumb.Item>
           </Breadcrumb>
         }
       >
         <Form
           labelCol={{span: 4}}
           wrapperCol={{span: 16}}
-          initialValues={{content: ''}}
+          initialValues={{content: '',type:1}}
           onFinish={onFinish}
+          ref={form}
         >
           <Form.Item
             label="标题"
@@ -119,8 +158,8 @@ const Publish = () => {
           </Form.Item>
 
           <Form.Item label="封面">
-            <Form.Item name="type">
-              <Radio.Group onChange={changeType} defaultValue={imgCount}>
+            <Form.Item name="type" >
+              <Radio.Group onChange={changeType}  >
                 <Radio value={1}>单图</Radio>
                 <Radio value={3}>三图</Radio>
                 <Radio value={0}>无图</Radio>
@@ -159,7 +198,7 @@ const Publish = () => {
           <Form.Item wrapperCol={{offset: 4}}>
             <Space>
               <Button size="large" type="primary" htmlType="submit">
-                发布文章
+                {articleId ? '修改文章' : '发布文章'}
               </Button>
             </Space>
           </Form.Item>
@@ -169,4 +208,4 @@ const Publish = () => {
   )
 }
 
-export default Publish
+export default observer(Publish)
