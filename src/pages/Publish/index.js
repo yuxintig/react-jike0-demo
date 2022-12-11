@@ -23,8 +23,7 @@ const {Option} = Select
 const Publish = () => {
   const [channels, setChannels] = useState([])
   const [fileList, setFileList] = useState([])
-  // const [imgCount, setImgCount] = useState(1)
-  let [imgCount,setImgCount] = useState(1)
+  let [imgCount, setImgCount] = useState(1)
   const fileListRef = useRef([])
   const [params] = useSearchParams()
   const articleId = params.get('id')
@@ -70,15 +69,15 @@ const Publish = () => {
         images: fileList.map(item => item.url)
       }
     }
-    if(articleId){
+    if (articleId) {
       // 编辑
-      await http.put(`/mp/articles/${articleId}?draft=false`,params)
-    }else{
+      await http.put(`/mp/articles/${articleId}?draft=false`, params)
+    } else {
       // 新增
       await http.post('/mp/articles?draft=false', params)
     }
     navigate('/article')
-    message.success(`${articleId?'更新成功':'发布成功'}`)
+    message.success(`${articleId ? '更新成功' : '发布成功'}`)
   }
 
 
@@ -93,26 +92,25 @@ const Publish = () => {
   }, [])
 
   useEffect(() => {
-    async function getArticle () {
+    async function getArticle() {
       const res = await http.get(`/mp/articles/${articleId}`)
       // 动态设置表单数据
       form.current.setFieldsValue({...res.data, type: res.data.cover.type})
       // // 格式化封面图片数据
-      console.log(res.data)
-      const imageList = res.data.cover.images.map(url => ({ url }))
+      const imageList = res.data.cover.images.map(url => ({url}))
       setFileList(imageList)
       setImgCount(Number(res.data.cover.type))
       // setImgCount(Number(res.data.cover.type))
       // console.log("0000",imgCount)
       fileListRef.current = imageList
     }
+
     if (articleId) {
       // 拉取数据回显
-      getArticle().then(() => {})
+      getArticle().then(() => {
+      })
     }
   }, [articleId])
-
-  console.log("shuliang",imgCount)
 
 
   return (
@@ -132,7 +130,7 @@ const Publish = () => {
         <Form
           labelCol={{span: 4}}
           wrapperCol={{span: 16}}
-          initialValues={{content: '',type:1}}
+          initialValues={{content: '', type: 1}}
           onFinish={onFinish}
           ref={form}
         >
@@ -158,8 +156,8 @@ const Publish = () => {
           </Form.Item>
 
           <Form.Item label="封面">
-            <Form.Item name="type" >
-              <Radio.Group onChange={changeType}  >
+            <Form.Item name="type">
+              <Radio.Group onChange={changeType}>
                 <Radio value={1}>单图</Radio>
                 <Radio value={3}>三图</Radio>
                 <Radio value={0}>无图</Radio>

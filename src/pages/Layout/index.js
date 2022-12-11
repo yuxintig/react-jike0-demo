@@ -42,7 +42,6 @@ const GeekLayout = () => {
   useEffect(() => {
     userStore.getUserInfo().then(() => {
     })
-    console.log(userStore, userStore.userInfo.name)
   }, [userStore])
 
   const onConfirm = () => {
@@ -70,7 +69,7 @@ const GeekLayout = () => {
           <Menu
             mode="inline"
             theme="dark"
-            key={pathname }
+            key={pathname}
             defaultSelectedKeys={[pathname]}
             style={{height: '100%', borderRight: 0}}
             items={MenuList}

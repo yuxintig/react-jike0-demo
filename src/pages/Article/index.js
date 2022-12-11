@@ -7,7 +7,7 @@ import img404 from '../../img/logo.png'
 import {DeleteOutlined, EditOutlined} from "@ant-design/icons";
 import {useEffect, useState} from "react";
 import {http} from '../../utils'
-import {history} from "../../utils/history";
+import {history} from "../../utils";
 
 const {Option} = Select
 const {RangePicker} = DatePicker
@@ -71,7 +71,7 @@ const Article = () => {
     {
       title: '状态',
       dataIndex: 'status',
-      render: data => <Tag color="green">审核通过</Tag>
+      render: () => <Tag color="green">审核通过</Tag>
     },
     {
       title: '发布时间',
@@ -124,7 +124,7 @@ const Article = () => {
     const _params = {}
     // 格式化status
     _params.status = status
-    if (channel_id) {
+    if (channel_id===0 || channel_id) {
       _params.channel_id = channel_id
     }
     if (date) {
@@ -162,10 +162,10 @@ const Article = () => {
       >
         <Form
           onFinish={onFinish}
-          initialValues={{status: null}}>
+          initialValues={{status: undefined}}>
           <Form.Item label="状态" name="status">
             <Radio.Group>
-              <Radio value={null}>全部</Radio>
+              <Radio value={undefined}>全部</Radio>
               <Radio value={0}>草稿</Radio>
               <Radio value={1}>待审核</Radio>
               <Radio value={2}>审核通过</Radio>
@@ -179,14 +179,14 @@ const Article = () => {
               style={{width: 120}}
             >
               {channels.map((res) => {
-                return <Option value={res.name} key={res.id}>{res.name}</Option>
+                return <Option value={res.id} key={res.id}>{res.name}</Option>
               })}
             </Select>
           </Form.Item>
 
           <Form.Item label="日期" name="date">
             {/* 传入locale属性 控制中文显示*/}
-            <RangePicker locale={locale}></RangePicker>
+            <RangePicker locale={locale}/>
           </Form.Item>
 
           <Form.Item>

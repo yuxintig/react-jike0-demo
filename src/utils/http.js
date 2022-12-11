@@ -26,7 +26,7 @@ http.interceptors.response.use((response) => {
 }, (error) => {
   // 超出 2xx 范围的状态码都会触发该函数。
   // 对响应错误做点什么
-  if (error.response.status === 401) {
+  if (error.response?.status === 401) {
     history.push('/login')
   }
 
